@@ -304,86 +304,26 @@ GET /users/{user_id}/events_sync{?start,limit,modified}
                 }
             ],
             "profile_fields": {
-                "title": {
-                    "label": "Title",
-                    "required": true
-                },
-                "first_name": {
-                    "label": "First Name",
-                    "required": true
-                },
-                "last_name": {
-                    "label": "Last Name",
-                    "required": true
-                },
-                "home_telephone": {
-                    "label": "Home Telephone",
-                    "required": false
-                },
-                "work_telephone": {
-                    "label": "Work telephone",
-                    "required": false
-                },
-                "mobile_telephone": {
-                    "label": "Mobile Telephone",
-                    "required": false
-                },
-                "linked_in": {
-                    "label": "Linked In",
-                    "required": false
-                },
-                "facebook": {
-                    "label": "Facebook",
-                    "required": false
-                },
-                "twitter": {
-                    "label": "Twitter",
-                    "required": false
-                },
-                "google": {
-                    "label": "Google",
-                    "required": false
-                },
-                "company_name": {
-                    "label": "Company Name",
-                    "required": true
-                },
-                "job_title": {
-                    "label": "Job Title",
-                    "required": false
-                },
-                "address_line_1": {
-                    "label": "Address 1",
-                    "required": false
-                },
-                "address_line_2": {
-                    "label": "Address 2",
-                    "required": false
-                },
-                "address_line_3": {
-                    "label": "Address 3",
-                    "required": false
-                },
-                "address_line_4": {
-                    "label": "Address 4",
-                    "required": false
-                },
-                "locality": {
-                    "label": "Locality",
-                    "required": false
-                },
-                "region": {
-                    "label": "Region",
-                    "required": false
-                },
-                "postcode": {
-                    "label": "Postcode",
-                    "required": false
-                },
-                "country": {
-                    "label": "Country",
-                    "required": false
-                }
+                "first_name": true,
+                "last_name": true,
+                "work_telephone": false,
+                "title": true,
+                "country": false,
+                "twitter": false,
+                "locality": false,
+                "linked_in": false,
+                "mobile_telephone": false,
+                "company": true,
+                "home_telephone": false,
+                "google": false,
+                "facebook": false,
+                "postcode": false,
+                "region": false,
+                "address_line_4": false,
+                "job_title": true,
+                "address_line_2": false,
+                "address_line_3": false,
+                "address_line_1": false
             },
             "questions": [
                 {
