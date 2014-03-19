@@ -753,14 +753,9 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "type": "team_join",
             "status": "pending",
             "level": "member",
-            "team":{
-                "_team_id": 1,
-                "name": "Kung Fu Masters"
-            },
-            "event":{
-                "_event_id": 1,
-                "name": "The Food Show 2013"
-            },
+            "team_name": "Kung Fu Masters",
+            "event_name": "The Food Show 2013",
+            "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
             "_modified": 1380621600
         },
@@ -769,13 +764,31 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "type": "event_staff",
             "status": "pending",
             "level": "admin",
-            "event":{
-                "_event_id": 1,
-                "name": "The Food Show 2013"
-            },
+            "event_name": "The Food Show 2013",
+            "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
             "_modified": 1380621720
-        }
+        },
+        {
+            "_invite_id": 3,
+            "type": "event_visit",
+            "status": "pending",
+            "event_name": "The Food Show 2013",
+            "date": "2014-03-19T10:53:12Z",
+            "_deleted": false,
+            "_modified": 1380621720
+        },
+        {
+            "_invite_id": 4,
+            "type": "team_create",
+            "status": "pending",
+            "team_name": "Kung Fu Masters",
+            "event_name": "The Food Show 2013",
+            "date": "2014-03-19T10:53:12Z",
+            "_deleted": false,
+            "_modified": 1380621720
+        },
+        
     ],
     "_modified": 1380621720,
     "_links": {
