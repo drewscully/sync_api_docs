@@ -20,10 +20,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-     Example: `/users/1/activity_sync?modified=1380621400&limit=10`
+     Example: `/users/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/activity_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -33,22 +33,22 @@ GET /users/{user_id}/activity_sync{?limit,modified}
         {
             "_activity_id": 1,
             "type": "connection",
-            "date": 1380621600,
+            "date": "2013-06-20T12:30:00Z",
             "event_id": 1,
-            "_modified": 1380621600
+            "_modified": "2013-06-20T12:30:00Z"
         },
         {
             "_activity_id": 2,
             "type": "goodie",
-            "date": 1380610110,
+            "date": "2013-06-30T12:30:00Z",
             "event_id": 1,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/activity_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/activity_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -72,10 +72,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/connections_sync?modified=1380621400&limit=10`
+    Example `/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/connections_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -86,21 +86,21 @@ GET /users/{user_id}/connections_sync{?limit,modified}
             "_connection_id": 1,
             "activity_id": 1,
             "contact_id": 10,
-            "_modified": 1380621600,
+            "_modified": "2013-06-20T12:30:00Z",
             "_deleted": false
         },
         {
             "_connection_id": 2,
             "activity_id": 2,
             "contact_id": 11,
-            "_modified": 1380621720,
+            "_modified": "2013-06-30T12:30:00Z",
             "_deleted": false
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/connections_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -124,10 +124,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/contacts_sync?modified=1380621400&limit=10`
+    Example `/users/1/contacts_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/contacts_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -185,7 +185,7 @@ GET /users/{user_id}/contacts_sync{?limit,modified}
                 }
             },
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_contact_id": 11,
@@ -238,13 +238,13 @@ GET /users/{user_id}/contacts_sync{?limit,modified}
                 }
             },
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/connections_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 
@@ -265,12 +265,12 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI filters:__
 
-* modified (Integer) *the modified date as a UTC unix timestamp. The method will return all events modified after this date.* 
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * start (Integer) *the item number to start from. If not specified this will be set to 0 by default.*
 * limit (Integer) *the maximum number of items to return. If not specified this will be set to 10 by default.*
 
 
-Example: `/users/1/events?modified=1380618000&start=0&limit=10`
+Example: `/users/1/events?modified=2012-06-30T12:30:00Z&start=0&limit=10`
 GET /users/{user_id}/events_sync{?start,limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -397,14 +397,14 @@ GET /users/{user_id}/events_sync{?start,limit,modified}
                 }
             },
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
     "_links": {
-        "self": { "href": "/users/1/events_sync?modified=1380618000&limit=10" },
-        "next": { "href": "/users/1/events_sync?modified=1383296400&start=10&limit=10" }
+        "self": { "href": "/users/1/events_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/events_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     },
-    "_modified": 1383296400
+    "_modified": "2013-06-30T12:30:00Z"
 }
 +++++
 < 404
@@ -427,10 +427,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=1380621400&limit=10`
+    Example `/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/tags_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -443,7 +443,7 @@ GET /users/{user_id}/tags_sync{?limit,modified}
             "colour": "F7686B",
             "icon": "flame",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_tag_id": 2,
@@ -451,13 +451,13 @@ GET /users/{user_id}/tags_sync{?limit,modified}
             "colour": "47B569",
             "icon": "phone",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/tags_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/tags_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -481,10 +481,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=1380621400&limit=10`
+    Example `/users/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/tag_assignments_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -496,20 +496,20 @@ GET /users/{user_id}/tag_assignments_sync{?limit,modified}
             "tag_id": 1,
             "contact_id": 10,
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_tag_assignment_id": 2,
             "tag_id": 2,
             "contact_id": 10,
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/tag_assignments_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/tag_assignments_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/tag_assignments_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/tag_assignments_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -533,10 +533,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=1380621400&limit=10`
+    Example `/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/notes_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -547,23 +547,23 @@ GET /users/{user_id}/notes_sync{?limit,modified}
             "_note_id": 1,
             "contact_id": 10,
             "note": "This is the note text. Blah blah",
-            "date": 1380621600, 
+            "date": "2013-06-30T12:30:00Z", 
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_note_id": 2,
             "contact_id": 10,
             "note": "This is another note. Blah blah",
-            "date": 1380621700, 
+            "date": "2013-06-30T12:30:00Z", 
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/notes_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/notes_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/notes_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/notes_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -587,10 +587,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/goodies_sync?modified=1380621400&limit=10`
+    Example `/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/goodies_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -600,19 +600,19 @@ GET /users/{user_id}/goodies_sync{?limit,modified}
         {
             "_goodie_id": 1,
             "activity_id": 9,
-            "collected_date": 1380621600,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Product Brochure",
             "type": "Document",
             "sub_type": "pdf",
             "url": "/docs/team/1/asdpoqwefpj.pdf",
             "team_name": "Kung Fu Masters",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_goodie_id": 2,
             "activity_id": 10,
-            "collected_date": 1380621712,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Fact File",
             "type": "video",
             "url": "/docs/team/1/asasfafgwwec.pdf",
@@ -632,12 +632,12 @@ GET /users/{user_id}/goodies_sync{?limit,modified}
 			},
             "team_name": "Kung Fu Masters", 
             "_deleted": false,
-            "_modified": 1380621712
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_goodie_id": 3,
             "activity_id": 11,
-            "collected_date": 1380621720,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Picture",
             "type": "image",
             "url": "https://www.youtube.com/watch?v=XJDUgkSzh-Y",
@@ -657,13 +657,13 @@ GET /users/{user_id}/goodies_sync{?limit,modified}
 			},
             "team_name": "Kung Fu Masters", 
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/goodies_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/goodies_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -686,10 +686,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/teams_sync?modified=1380621400&limit=10`
+    Example `/users/1/teams_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/teams_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -702,7 +702,7 @@ GET /users/{user_id}/teams_sync{?limit,modified}
             "name": "Letslynk Ltd",
             "user_level": "administrator",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_event_id": 2,
@@ -710,13 +710,13 @@ GET /users/{user_id}/teams_sync{?limit,modified}
             "name": "Bodswap",
             "user_level": "member",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/teams_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/teams_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/teams_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/teams_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -740,10 +740,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/invites_sync?modified=1380621400&limit=10`
+    Example `/users/1/invites_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /users/{user_id}/invites_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -761,7 +761,7 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "event_id": 1,
             "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_invite_id": 2,
@@ -772,7 +772,7 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "event_id": 1,
             "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_invite_id": 3,
@@ -782,7 +782,7 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "event_id": 1,
             "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_invite_id": 4,
@@ -793,14 +793,14 @@ GET /users/{user_id}/invites_sync{?limit,modified}
             "event_id": 1,
             "date": "2014-03-19T10:53:12Z",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         },
         
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/invites_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/users/1/invites_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/users/1/invites_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/invites_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -825,10 +825,10 @@ __Authorization:__ The caller must be authorized as a member of the team resourc
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-     Example: `/teams/1/activity_sync?modified=1380621400&limit=10`
+     Example: `/teams/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/activity_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -838,22 +838,22 @@ GET /teams/{team_id}/activity_sync{?limit,modified}
         {
             "_activity_id": 1,
             "type": "connection",
-            "date": 1380621600,
+            "date": "2013-06-30T12:30:00Z",
             "event_id": 1,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_activity_id": 2,
             "type": "goodie",
-            "date": 1380610110,
+            "date": "2013-06-30T12:30:00Z",
             "event_id": 1,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/activity_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/activity_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -877,10 +877,10 @@ __Authorization:__ The caller must be authorized as a member of the team resourc
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/connections_sync?modified=1380621400&limit=10`
+    Example `/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/connections_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -891,21 +891,21 @@ GET /teams/{team_id}/connections_sync{?limit,modified}
             "_connection_id": 1,
             "activity_id": 1,
             "contact_id": 10,
-            "_modified": 1380621600,
+            "_modified": "2013-06-30T12:30:00Z",
             "_deleted": false
         },
         {
             "_connection_id": 2,
             "activity_id": 2,
             "contact_id": 11,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
             "_deleted": false
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/connections_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/connections_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -929,10 +929,10 @@ __Authorization:__ The caller must be authorized as the a member of the team res
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/contacts_sync?modified=1380621400&limit=10`
+    Example `/teams/1/contacts_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/contacts_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -990,7 +990,7 @@ GET /teams/{team_id}/contacts_sync{?limit,modified}
                 }
             },
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_contact_id": 11,
@@ -1043,13 +1043,13 @@ GET /teams/{team_id}/contacts_sync{?limit,modified}
                 }
             },
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/connections_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/connections_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 
@@ -1067,10 +1067,10 @@ __Authorization:__ The caller must be authorized as a member of the team resourc
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=1380621400&limit=10`
+    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/tags_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -1083,7 +1083,7 @@ GET /teams/{team_id}/tags_sync{?limit,modified}
             "colour": "F7686B",
             "icon": "flame",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_tag_id": 2,
@@ -1091,13 +1091,13 @@ GET /teams/{team_id}/tags_sync{?limit,modified}
             "colour": "47B569",
             "icon": "phone",
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/tags_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/tags_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1121,10 +1121,10 @@ __Authorization:__ The caller must be authorized as a member of the team resourc
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=1380621400&limit=10`
+    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/tag_assignments_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -1136,20 +1136,20 @@ GET /teams/{team_id}/tag_assignments_sync{?limit,modified}
             "tag_id": 1,
             "contact_id": 10,
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_tag_assignment_id": 2,
             "tag_id": 2,
             "contact_id": 10,
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/tag_assignments_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/tag_assignments_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/tag_assignments_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/tag_assignments_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1173,10 +1173,10 @@ __Authorization:__ The caller must be authorized as the owner of the user resour
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=1380621400&limit=10`
+    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/notes_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -1187,23 +1187,23 @@ GET /teams/{team_id}/notes_sync{?limit,modified}
             "_note_id": 1,
             "contact_id": 10,
             "note": "This is the note text. Blah blah",
-            "date": 1380621600, 
+            "date": "2013-06-30T12:30:00Z", 
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_note_id": 2,
             "contact_id": 10,
             "note": "This is another note. Blah blah",
-            "date": 1380621700, 
+            "date": "2013-06-30T12:30:00Z", 
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/notes_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/notes_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/notes_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/notes_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1227,10 +1227,10 @@ __Authorization:__ The caller must be authorized as a member of the team resourc
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/goodies_sync?modified=1380621400&limit=10`
+    Example `/teams/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /teams/{team_id}/goodies_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -1240,19 +1240,19 @@ GET /teams/{team_id}/goodies_sync{?limit,modified}
         {
             "_goodie_id": 1,
             "activity_id": 9,
-            "collected_date": 1380621600,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Product Brochure",
             "type": "Document",
             "sub_type": "pdf",
             "url": "/docs/team/1/asdpoqwefpj.pdf",
             "team_name": "Kung Fu Masters",
             "_deleted": false,
-            "_modified": 1380621600
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_goodie_id": 2,
             "activity_id": 10,
-            "collected_date": 1380621712,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Fact File",
             "type": "video",
             "url": "/docs/team/1/asasfafgwwec.pdf",
@@ -1272,12 +1272,12 @@ GET /teams/{team_id}/goodies_sync{?limit,modified}
 			},
             "team_name": "Kung Fu Masters", 
             "_deleted": false,
-            "_modified": 1380621712
+            "_modified": "2013-06-30T12:30:00Z"
         },
         {
             "_goodie_id": 3,
             "activity_id": 11,
-            "collected_date": 1380621720,
+            "collected_date": "2013-06-30T12:30:00Z",
             "name": "2013 Picture",
             "type": "image",
             "url": "https://www.youtube.com/watch?v=XJDUgkSzh-Y",
@@ -1297,13 +1297,13 @@ GET /teams/{team_id}/goodies_sync{?limit,modified}
 			},
             "team_name": "Kung Fu Masters", 
             "_deleted": false,
-            "_modified": 1380621720
+            "_modified": "2013-06-30T12:30:00Z"
         }
     ],
-    "_modified": 1380621720,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/goodies_sync?modified=1380621400&limit=10" },
-        "next": { "href": "/teams/1/goodies_sync?modified=1380621720&limit=10" }
+        "self": { "href": "/teams/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/teams/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1327,16 +1327,16 @@ __Authorization:__ The caller must be authorized as a scanner of the event resou
 
 __URI Filters__: 
 
-* modified (Integer) *the UTC unix time modified date*
+* modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/events/1/registrants_sync?modified=1380621400&limit=10`
+    Example `/events/1/registrants_sync?modified=2012-06-30T12:30:00Z&limit=10`
 GET /events/{event_id}/registrants_sync{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
 {
-    "_modified": 1392112171,
+    "_modified": "2013-06-30T12:30:00Z",
     "_links": {
         "self": {
             "href": "http://178.79.170.67:8000/events/1/registrants_sync"
@@ -1344,7 +1344,7 @@ GET /events/{event_id}/registrants_sync{?limit,modified}
     },
     "registrations": [
         {
-            "_modified": 1392112169,
+            "_modified": "2013-06-30T12:30:00Z",
             "_deleted": false
             "registration_date": "2014-02-11T09:49:29Z",
             "user": {
@@ -1399,7 +1399,7 @@ GET /events/{event_id}/registrants_sync{?limit,modified}
             }
         },
         {
-            "_modified": 1392112171,
+            "_modified": "2013-06-30T12:30:00Z",
             "_deleted": false,
             "registration_date": "2014-02-11T09:49:31Z",
             "user": {
