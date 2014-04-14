@@ -1214,6 +1214,97 @@ GET /teams/{team_id}/notes_sync{?limit,modified}
 
 
 --
+Team > Goodies
+This method is for syncing goodies to the mobile device.
+--
+
+Retrieve a list of notes
+
+__Authentication:__ Required
+
+__Authorization:__ The caller must be authorized as a member of the team resource 
+
+__URI Filters__: 
+
+* modified (RFC3339 Date) *the RFC3339 modified date*
+* limit (Integer) *the maximum number of items to return*
+
+    Example `/teams/1/goodies?modified=2012-06-30T12:30:00Z&limit=10`
+GET /teams/{user_id}/goodies{?limit,modified}
+> Content-Type: application/json
+> Authorization: Basic {your encoded token}
+< 200
+{
+    "goodies": [
+        {
+            "_goodie_id": 1,
+            "name": "2013 Product Brochure",
+            "type": "Document",
+            "sub_type": "pdf",
+            "url": "/docs/team/1/asdpoqwefpj.pdf",
+            "_deleted": false,
+            "_modified": "2013-06-30T12:30:00Z"
+        },
+        {
+            "_goodie_id": 2,
+            "name": "2013 Fact File",
+            "type": "video",
+            "url": "/docs/team/1/asasfafgwwec.pdf",
+            "thumbnail": {
+				"_links": {
+					"original": { "href": "https://i.letslynk.com/u/9fkoWokA/b/orig.jpg" },
+					"320": { "href": "https://i.letslynk.com/u/9fkoWokA/b/320.jpg" },
+					"480": { "href": "https://i.letslynk.com/u/9fkoWokA/b/480.jpg" },
+					"612": { "href": "https://i.letslynk.com/u/9fkoWokA/b/612.jpg" },
+					"640": { "href": "https://i.letslynk.com/u/9fkoWokA/b/640.jpg" },
+					"720": { "href": "https://i.letslynk.com/u/9fkoWokA/b/720.jpg" },
+					"960": { "href": "https://i.letslynk.com/u/9fkoWokA/b/960.jpg" },
+					"1080": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1080.jpg" },
+					"1200": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1200.jpg" },
+					"1600": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1600.jpg" }
+				}
+			},
+            "_deleted": false,
+            "_modified": "2013-06-30T12:30:00Z"
+        },
+        {
+            "_goodie_id": 3,
+            "name": "2013 Picture",
+            "type": "image",
+            "url": "https://www.youtube.com/watch?v=XJDUgkSzh-Y",
+            "thumbnail": {
+				"_links": {
+					"original": { "href": "https://i.letslynk.com/u/9fkoWokA/b/orig.jpg" },
+					"320": { "href": "https://i.letslynk.com/u/9fkoWokA/b/320.jpg" },
+					"480": { "href": "https://i.letslynk.com/u/9fkoWokA/b/480.jpg" },
+					"612": { "href": "https://i.letslynk.com/u/9fkoWokA/b/612.jpg" },
+					"640": { "href": "https://i.letslynk.com/u/9fkoWokA/b/640.jpg" },
+					"720": { "href": "https://i.letslynk.com/u/9fkoWokA/b/720.jpg" },
+					"960": { "href": "https://i.letslynk.com/u/9fkoWokA/b/960.jpg" },
+					"1080": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1080.jpg" },
+					"1200": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1200.jpg" },
+					"1600": { "href": "https://i.letslynk.com/u/9fkoWokA/b/1600.jpg" }
+				}
+			},
+            "_deleted": false,
+            "_modified": "2013-06-30T12:30:00Z"
+        }
+    ],
+    "_modified": "2013-06-30T12:30:00Z",
+    "_links": {
+        "self": { "href": "/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+    }
+}
++++++
+< 404
+< Content-Type: application/json
+{
+    "error": "The requested resource could not be found"
+}
+
+
+--
 Team > GoodiesSync
 This method is for syncing goodies to the mobile device.
 --
