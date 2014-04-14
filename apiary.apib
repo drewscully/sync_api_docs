@@ -47,8 +47,8 @@ GET /sync/users/{user_id}/activity{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/activity?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/activity?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/activity?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/activity?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -99,8 +99,8 @@ GET /sync/users/{user_id}/connections{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -243,13 +243,13 @@ GET /sync/users/{user_id}/contacts{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 
 --
-User > EventsSync
+User > Events
 A collection of events that the user is related to because:
 
 1. They are a staff member,
@@ -662,8 +662,8 @@ GET /sync/users/{user_id}/goodies{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/goodies?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/goodies?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1420,7 +1420,7 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/sync/events/1/registrants_sync?modified=2012-06-30T12:30:00Z&limit=10`
+    Example `/sync/events/1/registrants?modified=2012-06-30T12:30:00Z&limit=10`
 GET /sync/events/{event_id}/registrants{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
@@ -1429,7 +1429,7 @@ GET /sync/events/{event_id}/registrants{?limit,modified}
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
         "self": {
-            "href": "http://178.79.170.67:8000/events/1/registrants_sync"
+            "href": "http://178.79.170.67:8000/events/1/registrants"
         }
     },
     "registrations": [
