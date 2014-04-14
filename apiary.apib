@@ -7,7 +7,7 @@ Below are the details of the Lets Lynk Sync API. This API provides methods to sy
 ---
 
 --
-User > ActivitySync
+User > Activity
 
 This method is for syncing activities to the mobile device.
 --
@@ -23,8 +23,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-     Example: `/users/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/activity_sync{?limit,modified}
+     Example: `/sync/users/1/activity?modified=2013-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/activity{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -47,8 +47,8 @@ GET /users/{user_id}/activity_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/users/1/activity?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/activity?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -60,7 +60,7 @@ GET /users/{user_id}/activity_sync{?limit,modified}
 
 
 --
-User > ConnectionsSync
+User > Connections
 This method is for syncing connections to the mobile device.
 --
 
@@ -75,8 +75,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/connections_sync{?limit,modified}
+    Example `/sync/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/connections{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -99,8 +99,8 @@ GET /users/{user_id}/connections_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -112,7 +112,7 @@ GET /users/{user_id}/connections_sync{?limit,modified}
 
 
 --
-User > ContactsSync
+User > Contacts
 This method is for syncing contacts to the mobile device
 --
 
@@ -127,8 +127,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/contacts_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/contacts_sync{?limit,modified}
+    Example `/sync/users/1/contacts?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/contacts{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -243,8 +243,8 @@ GET /users/{user_id}/contacts_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/users/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 
@@ -270,8 +270,8 @@ __URI filters:__
 * limit (Integer) *the maximum number of items to return. If not specified this will be set to 10 by default.*
 
 
-Example: `/users/1/events?modified=2012-06-30T12:30:00Z&start=0&limit=10`
-GET /users/{user_id}/events_sync{?start,limit,modified}
+Example: `/sync/users/1/events?modified=2012-06-30T12:30:00Z&start=0&limit=10`
+GET /sync/users/{user_id}/events{?start,limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -401,8 +401,8 @@ GET /users/{user_id}/events_sync{?start,limit,modified}
         }
     ],
     "_links": {
-        "self": { "href": "/users/1/events_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/events_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/events?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/events?modified=2013-06-30T12:30:00Z&limit=10" }
     },
     "_modified": "2013-06-30T12:30:00Z"
 }
@@ -415,7 +415,7 @@ GET /users/{user_id}/events_sync{?start,limit,modified}
 
 
 --
-User > TagsSync
+User > Tags
 This method is for syncing tags to the mobile device.
 --
 
@@ -430,8 +430,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/tags_sync{?limit,modified}
+    Example `/sync/users/1/tags?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/tags{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -456,8 +456,8 @@ GET /users/{user_id}/tags_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/tags?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/tags?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -469,7 +469,7 @@ GET /users/{user_id}/tags_sync{?limit,modified}
 
 
 --
-User > TagsAssignmentsSync
+User > Tags Assignments
 This method is for syncing tag assignments to the mobile device.
 --
 
@@ -484,8 +484,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/tag_assignments_sync{?limit,modified}
+    Example `/sync/users/1/tags_assignments?modified=2013-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/tag_assignments{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -508,8 +508,8 @@ GET /users/{user_id}/tag_assignments_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/tag_assignments_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/tag_assignments_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/tag_assignments?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/tag_assignments?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -521,7 +521,7 @@ GET /users/{user_id}/tag_assignments_sync{?limit,modified}
 
 
 --
-User > NotesSync
+User > Notes
 This method is for syncing notes to the mobile device.
 --
 
@@ -536,8 +536,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/notes_sync{?limit,modified}
+    Example `/sync/users/1/notes?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/notes{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -562,8 +562,8 @@ GET /users/{user_id}/notes_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/notes_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/notes_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/notes?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/notes?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -575,7 +575,7 @@ GET /users/{user_id}/notes_sync{?limit,modified}
 
 
 --
-User > GoodiesSync
+User > Goodies
 This method is for syncing goodies to the mobile device.
 --
 
@@ -590,8 +590,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/goodies_sync{?limit,modified}
+    Example `/sync/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/goodies{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -662,8 +662,8 @@ GET /users/{user_id}/goodies_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/users/1/goodies?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -674,7 +674,7 @@ GET /users/{user_id}/goodies_sync{?limit,modified}
 }
 
 --
-User > TeamsSync
+User > Teams
 This method is for syncing teams to the mobile device.
 --
 
@@ -689,8 +689,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/teams_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/teams_sync{?limit,modified}
+    Example `/sync/users/1/teams?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/teams{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -715,8 +715,8 @@ GET /users/{user_id}/teams_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/teams_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/teams_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/teams?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/teams?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -728,7 +728,7 @@ GET /users/{user_id}/teams_sync{?limit,modified}
 
 
 --
-User > InvitesSync
+User > Invites
 This method is for syncing teams to the mobile device.
 --
 
@@ -743,8 +743,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/users/1/invites_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /users/{user_id}/invites_sync{?limit,modified}
+    Example `/sync/users/1/invites?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/invites{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -798,8 +798,8 @@ GET /users/{user_id}/invites_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/invites_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/invites_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/invites?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/invites?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -811,7 +811,7 @@ GET /users/{user_id}/invites_sync{?limit,modified}
 
 
 --
-Team > ActivitySync
+Team > Activity
 
 This method is for syncing activities to the mobile device.
 --
@@ -827,8 +827,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-     Example: `/teams/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/activity_sync{?limit,modified}
+     Example: `/sync/teams/1/activity?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/activity{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -851,8 +851,8 @@ GET /teams/{team_id}/activity_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/activity_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/activity_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/activity?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/activity?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -864,7 +864,7 @@ GET /teams/{team_id}/activity_sync{?limit,modified}
 
 
 --
-Team > ConnectionsSync
+Team > Connections
 This method is for syncing connections to the mobile device.
 --
 
@@ -879,8 +879,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/connections_sync{?limit,modified}
+    Example `/sync/teams/1/connections?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/connections{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -903,8 +903,8 @@ GET /teams/{team_id}/connections_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -916,7 +916,7 @@ GET /teams/{team_id}/connections_sync{?limit,modified}
 
 
 --
-Team > ContactsSync
+Team > Contacts
 This method is for syncing contacts to the mobile device
 --
 
@@ -931,8 +931,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/contacts_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/contacts_sync{?limit,modified}
+    Example `/sync/teams/1/contacts?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/contacts{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1047,14 +1047,14 @@ GET /teams/{team_id}/contacts_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/connections_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/connections_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/connections?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/connections?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 
 
 --
-Team > TagsSync
+Team > Tags
 This method is for syncing tags to the mobile device.
 --
 
@@ -1069,8 +1069,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/tags_sync{?limit,modified}
+    Example `/sync/teams/1/tags?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/tags{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1095,8 +1095,8 @@ GET /teams/{team_id}/tags_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/tags_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/tags?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/tags?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1108,7 +1108,7 @@ GET /teams/{team_id}/tags_sync{?limit,modified}
 
 
 --
-Team > TagsAssignmentsSync
+Team > Tag Assignments
 This method is for syncing tag assignments to the mobile device.
 --
 
@@ -1123,8 +1123,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/tag_assignments_sync{?limit,modified}
+    Example `/sync/teams/1/tags_assignments?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/tag_assignments{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1147,8 +1147,8 @@ GET /teams/{team_id}/tag_assignments_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/tag_assignments_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/tag_assignments_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/tag_assignments?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/tag_assignments?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1175,8 +1175,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/tags_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/notes_sync{?limit,modified}
+    Example `/sync/teams/1/notes?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/notes{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1201,8 +1201,8 @@ GET /teams/{team_id}/notes_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/notes_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/notes_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/notes?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/notes?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1229,8 +1229,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/goodies?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{user_id}/goodies{?limit,modified}
+    Example `/sync/teams/1/goodies?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{user_id}/goodies{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1292,8 +1292,8 @@ GET /teams/{user_id}/goodies{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/users/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/users/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/goodies?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/goodies?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1305,7 +1305,7 @@ GET /teams/{user_id}/goodies{?limit,modified}
 
 
 --
-Team > GoodiesSync
+Team > Goodie Bag
 This method is for syncing goodies to the mobile device.
 --
 
@@ -1320,8 +1320,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/teams/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /teams/{team_id}/goodies_sync{?limit,modified}
+    Example `/sync/teams/1/goodie_bag?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/teams/{team_id}/goodie_bag{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -1392,8 +1392,8 @@ GET /teams/{team_id}/goodies_sync{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/teams/1/goodies_sync?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/teams/1/goodies_sync?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/teams/1/goodie_bag?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/teams/1/goodie_bag?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
@@ -1405,7 +1405,7 @@ GET /teams/{team_id}/goodies_sync{?limit,modified}
 
 
 --
-Event > RegistrantsSync
+Event > Registrants
 This method is for syncing event registrants to the mobile device
 --
 
@@ -1420,8 +1420,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/events/1/registrants_sync?modified=2012-06-30T12:30:00Z&limit=10`
-GET /events/{event_id}/registrants_sync{?limit,modified}
+    Example `/sync/events/1/registrants_sync?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/events/{event_id}/registrants{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
