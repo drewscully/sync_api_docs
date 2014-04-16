@@ -575,11 +575,11 @@ GET /sync/users/{user_id}/notes{?limit,modified}
 
 
 --
-User > Goodies
-This method is for syncing goodies to the mobile device.
+User > Goodie Bag
+This method is for syncing the user's goodie bag to the mobile device.
 --
 
-Retrieve a list of goodies
+Retrieve a list of user's collected goodies
 
 __Authentication:__ Required
 
@@ -590,8 +590,8 @@ __URI Filters__:
 * modified (RFC3339 Date) *the RFC3339 modified date*
 * limit (Integer) *the maximum number of items to return*
 
-    Example `/sync/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10`
-GET /sync/users/{user_id}/goodies{?limit,modified}
+    Example `/sync/users/1/goodie_bag?modified=2012-06-30T12:30:00Z&limit=10`
+GET /sync/users/{user_id}/goodie_bag{?limit,modified}
 > Content-Type: application/json
 > Authorization: Basic {your encoded token}
 < 200
@@ -662,8 +662,8 @@ GET /sync/users/{user_id}/goodies{?limit,modified}
     ],
     "_modified": "2013-06-30T12:30:00Z",
     "_links": {
-        "self": { "href": "/sync/users/1/goodies?modified=2012-06-30T12:30:00Z&limit=10" },
-        "next": { "href": "/sync/users/1/goodies?modified=2013-06-30T12:30:00Z&limit=10" }
+        "self": { "href": "/sync/users/1/goodie_bag?modified=2012-06-30T12:30:00Z&limit=10" },
+        "next": { "href": "/sync/users/1/goodie_bag?modified=2013-06-30T12:30:00Z&limit=10" }
     }
 }
 +++++
